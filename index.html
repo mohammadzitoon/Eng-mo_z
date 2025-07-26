@@ -1,69 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Students info</title>
+  <meta charset="UTF-8" />
+  <title>Assignment 1 Solution</title>
+  <style>
+    /* القاعدة الأساسية لصندوق الحجم */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 2.625rem; /* 75% أكبر من النص العادي */
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* الحاوية التي تضم الأقسام */
+    .container {
+      width: 100%;
+      overflow: hidden; /* لكي يتصرف الفلوات داخلها */
+    }
+
+    /* الأقسام الرئيسية */
+    .section {
+      position: relative;
+      border: 1px solid black;
+      padding: 40px 20px 20px 20px; /* الحشو مع ترك مساحة للعناوين */
+      margin-bottom: 20px;
+      background-color: #eee;
+      float: left; /* لاستخدام float في التنسيق */
+      color: #222;
+    }
+
+    /* عنوان القسم */
+    .section-title {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #d2691e; /* لون مختلف لكل قسم فيما بعد */
+      border: 1px solid black;
+      padding: 5px 10px;
+      font-size: 1.25rem; /* 25% أكبر من النص العادي */
+      font-weight: bold;
+      color: white;
+    }
+
+    /* ألوان العناوين حسب القسم */
+    .chicken .section-title {
+      background-color: #ff6347; /* Tomoto red */
+    }
+
+    .beef .section-title {
+      background-color: #a52a2a; /* Brown */
+    }
+
+    .sushi .section-title {
+      background-color: #228b22; /* Forest green */
+    }
+
+    /* نص الفقرة */
+    .section p {
+      margin-top: 30px; /* مساحة بين العنوان والنص */
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* === التصميم للشاشات المختلفة === */
+
+    /* ديسكتوب - 992px وما فوق */
+    @media (min-width: 992px) {
+      .section {
+        width: 32%; /* ثلاثة أعمدة متساوية مع بعض الهامش */
+        margin-right: 1%;
+      }
+
+      .section:last-child {
+        margin-right: 0;
+      }
+    }
+
+    /* تابلت - بين 768px و 991px */
+    @media (min-width: 768px) and (max-width: 991px) {
+      .section {
+        width: 48%;
+        margin-right: 2%;
+      }
+
+      /* القسم الثالث (السوشي) يأخذ الصف بالكامل */
+      .section.sushi {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      /* صف 1: الدجاج واللحم */
+      .section.chicken, .section.beef {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* موبايل - 767px وأقل */
+    @media (max-width: 767px) {
+      .section {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+  </style>
 </head>
 <body>
+  <h1>Our Menu</h1>
 
-  <h3>Students info.</h3>
+  <div class="container">
+    <section class="section chicken">
+      <div class="section-title">Chicken</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </section>
 
-  <table border="1">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Ali</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>عمر</td>
-      <td>22</td>
-    </tr>
-  </table>
+    <section class="section beef">
+      <div class="section-title">Beef</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </section>
 
-  <br>
-
-  <h3>Another table</h3>
-
-  <table border="1">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>S</th>
-      <th>M</th>
-      <th>T</th>
-      <th>W</th>
-      <th>T</th>
-      <th>F</th>
-      <th>S</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Ali</td>
-      <td>Off</td>
-      <td>Counter</td>
-      <td>Shelfs</td>
-      <td>Store</td>
-      <td>Closed</td>
-      <td>Gate</td>
-      <td>Gate</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Omar</td>
-      <td>Counter</td>
-      <td>Shelfs</td>
-      <td>Off</td>
-      <td>Gate</td>
-      <td>Closed</td>
-      <td>Store</td>
-      <td>Store</td>
-    </tr>
-  </table>
-
+    <section class="section sushi">
+      <div class="section-title">Sushi</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </section>
+  </div>
 </body>
-             </html>
+</html>
